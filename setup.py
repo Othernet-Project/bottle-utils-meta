@@ -3,11 +3,15 @@ from setuptools import setup, find_packages
 
 import bottle_utils
 
+
 def read(fname):
     """ Return content of specified file """
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+
 VERSION = bottle_utils.__version__
+MAJOR = '0.3'
+NEXT = '0.4'
 
 setup(
     name='bottle-utils-meta',
@@ -23,7 +27,7 @@ setup(
     install_requires=[
         'bottle==0.12.7',
         'python-dateutil==2.2',
-        'bottle-utils-common==%s' % VERSION,
+        'bottle-utils-common >=%s, <%s' % (MAJOR, NEXT),
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
